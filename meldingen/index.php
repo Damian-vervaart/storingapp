@@ -26,8 +26,37 @@
             $statement->execute();
             $meldingen = $statement->fetchAll(PDO::FETCH_ASSOC); 
         ?>
-
-      <pre><?php print_r($meldingen); ?>
+        <table>
+            <tr>
+                <th>attractie</th>
+                <th>Type</th>
+                <th>capaciteit</th>
+                <th>prioriteit</th>
+                <th>Melder</th>
+                <th>gemeld op</th>
+                <th>Overige info</th>
+            </tr>
+            <?php foreach($meldingen as $melding): ?>
+            <tr>
+               <td><?php echo $melding['attractie']?></td>
+               <td><?php echo $melding['type']?></td>
+               <td><?php echo $melding['capaciteit']?></td>
+               <td><?php  if ($melding['prioriteit'] == 0)
+                            {
+                                echo '<img src="../img/never.png" alt="">';
+                            }
+                            else
+                            {
+                                 echo '<img src="../img/uitroep.jpg" alt="">';
+                            }
+                 ?></td>
+               <td><?php echo $melding['melder']?></td>
+               <td><?php echo $melding['gemeld_op']?></td>
+               <td><?php echo $melding['overige_info']?></td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+     
     </div>  
 
 </body>

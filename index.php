@@ -2,6 +2,7 @@
 <html lang="nl">
 
 <head>
+    <link rel="index.php" href="meldingen/index.php">
     <title>StoringApp</title>
     <?php require_once 'head.php'; ?>
 </head>
